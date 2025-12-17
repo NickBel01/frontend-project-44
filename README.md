@@ -10,10 +10,9 @@
 - **brain-gcd** — нахождение наибольшего общего делителя двух чисел
 - **brain-prime** — определение, является ли число простым
 - **brain-progression** — определение пропущенного числа в арифметической прогрессии
-Запись всех игр включая одну ошибку:
-https://asciinema.org/a/ZBEIeaq1RE762PldXpirUIT6B
 
-Запись всех игр (включая одну ошибку):  
+
+Запись всех игр (включая одну ошибку):  https://asciinema.org/a/ZBEIeaq1RE762PldXpirUIT6B
 npm install -g @hexlet/code
 brain-even
 brain-calc

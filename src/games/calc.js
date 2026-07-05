@@ -1,29 +1,24 @@
+import { getRandomNumbers } from '../utils.js'
+
 export const rule = 'What is the result of the expression?'
 export const getQuestionAndAnswer = () => {
-  let correctAnswer = 0
-
-  let randomNumberOne = Math.floor(Math.random() * 100) + 1
-  let randomNumberTwo = Math.floor(Math.random() * 100) + 1
-
+  let a = getRandomNumbers()
+  let b = getRandomNumbers()
   const operators = ['+', '-', '*']
-  const operator = operators[Math.floor(Math.random() * operators.length)]
+  const operator = operators[getRandomNumbers(0, operators.length - 1)]
+  let correctAnswer
 
   switch (operator) {
     case '+':
-      correctAnswer = randomNumberOne + randomNumberTwo
+      correctAnswer = a + b
       break
     case '-':
-      if (randomNumberOne < randomNumberTwo) {
-        [randomNumberOne, randomNumberTwo] = [randomNumberTwo, randomNumberOne]
-      }
-      correctAnswer = randomNumberOne - randomNumberTwo
+      correctAnswer = a - b
       break
     case '*':
-      correctAnswer = randomNumberOne * randomNumberTwo
+      correctAnswer = a * b
       break
   }
 
-  const question = `${randomNumberOne} ${operator} ${randomNumberTwo}`
-
-  return [question, String(correctAnswer)]
+  return [`${a} ${operator} ${b}`, String(correctAnswer)]
 }

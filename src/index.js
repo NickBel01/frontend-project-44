@@ -1,12 +1,12 @@
-#!/usr/bin/env node
 import readlineSync from 'readline-sync'
 import helloUser from '../src/cli.js'
 
+const attemptCount = 3
 const index = (rule, getQuestionAndAnswer) => {
   const userName = helloUser()
-  let greatAtteps = 0
+  let correctAttempts = 0
   console.log(rule)
-  while (greatAtteps < 3) {
+  while (correctAttempts < attemptCount) {
     const [question, correctAnswer] = getQuestionAndAnswer()
 
     console.log('Question: ' + question)
@@ -14,7 +14,7 @@ const index = (rule, getQuestionAndAnswer) => {
 
     if (answer === correctAnswer) {
       console.log('Correct!')
-      greatAtteps++
+      correctAttempts++
     }
     else {
       console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`)

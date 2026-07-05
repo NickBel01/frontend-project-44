@@ -1,7 +1,8 @@
+import { getRandomNumbers } from '../utils.js'
+
 export const rule = 'Answer "yes" if the number is even, otherwise answer "no".'
 export const getQuestionAndAnswer = () => {
-  let randomNumber = Math.floor(Math.random() * 100) + 1
-  const question = randomNumber
+  const randomNumber = getRandomNumbers()
   const correctAnswer = randomNumber % 2 === 0 ? 'yes' : 'no'
-  return [question, correctAnswer]
+  return [String(randomNumber), correctAnswer]
 }

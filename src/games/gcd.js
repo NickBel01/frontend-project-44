@@ -1,15 +1,15 @@
+import { getRandomNumbers } from '../utils.js'
+
 export const rule = 'Find the greatest common divisor of given numbers.'
 export const getQuestionAndAnswer = () => {
-  let a = Math.floor(Math.random() * 100) + 1
-  let b = Math.floor(Math.random() * 100) + 1
+  const a = getRandomNumbers()
+  const b = getRandomNumbers()
+  let x = a
+  let y = b
 
-  const question = `${a} ${b}`
-
-  while (b !== 0) {
-    const temp = b
-    b = a % b
-    a = temp
+  while (y !== 0) {
+    [x, y] = [y, x % y]
   }
-  const correctAnswer = String(a)
-  return [question, correctAnswer]
+
+  return [`${a} ${b}`, String(x)]
 }

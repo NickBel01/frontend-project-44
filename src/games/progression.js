@@ -1,37 +1,28 @@
-import { getRandomNumbers } from '../utils.js'
+import { getRandomNumber } from '../utils.js'
 
 export const rule = 'What number is missing in the progression?'
+
+const LENGTH = 10
+const MIN_STEP = 1
+const MAX_STEP = 10
+
+const getProgression = (start, step, length) => {
+  const progression = []
+  for (let i = 0; i < length; i++) {
+    progression.push(start + i * step)
+  }
+  return progression
+}
+
+const getRandomIndex = length => Math.floor(Math.random() * length)
+
 export const getQuestionAndAnswer = () => {
-  const length = 10
+  const start = getRandomNumber()
+  const step = getRandomNumber(MIN_STEP, MAX_STEP)
+  const progression = getProgression(start, step, LENGTH)
+  const indexHide = getRandomIndex(LENGTH)
 
-  const getProgression = (length) => {
-    let progression = []
-
-    let start = getRandomNumbers()
-    let step = getRandomNumbers(1, 10)
-    for (let i = 0; i < length; i++) {
-      progression.push(start + i * step)
-    }
-    return progression
-  }
-
-  const getRandomIndex = (length) => {
-    return Math.floor(Math.random() * length)
-  }
-
-  let progression = getProgression(length)
-  const indexHide = getRandomIndex(length)
-  let questionParts = []
-
-  for (let i = 0; i < progression.length; i++) {
-    if (i === indexHide) {
-      questionParts.push('..')
-    }
-    else {
-      questionParts.push(progression[i])
-    }
-  }
-
+  const questionParts = progression.map((num, i) => (i === indexHide ? '..' : num))
   const question = questionParts.join(' ')
   const correctAnswer = progression[indexHide]
 

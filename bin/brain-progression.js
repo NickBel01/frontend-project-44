@@ -1,5 +1,7 @@
 #!/usr/bin/env node
-import index from '../src/index.js'
+import greet from '../src/cli.js'
+import runGame from '../src/index.js'
 import { rule, getQuestionAndAnswer } from '../src/games/progression.js'
 
-index(rule, getQuestionAndAnswer)
+const userName = greet()
+runGame(rule, getQuestionAndAnswer, userName)

@@ -13,9 +13,7 @@
     "brain-prime": "bin/brain-prime.js"
 
   },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/NickBel01/frontend-project-44.git"

@@ -1,29 +1,25 @@
 import readlineSync from 'readline-sync'
-import helloUser from '../src/cli.js'
 
-const attemptCount = 3
-const index = (rule, getQuestionAndAnswer) => {
-  const userName = helloUser()
-  let correctAttempts = 0
+const ROUNDS_COUNT = 3
+
+const runGame = (rule, getQuestionAndAnswer, userName) => {
   console.log(rule)
-  while (correctAttempts < attemptCount) {
+
+  for (let i = 0; i < ROUNDS_COUNT; i++) {
     const [question, correctAnswer] = getQuestionAndAnswer()
 
-    console.log('Question: ' + question)
+    console.log(`Question: ${question}`)
     const answer = readlineSync.question('Your answer: ')
 
-    if (answer === correctAnswer) {
-      console.log('Correct!')
-      correctAttempts++
-    }
-    else {
+    if (answer !== correctAnswer) {
       console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`)
-      console.log('Let\'s try again, ' + userName + '!')
+      console.log(`Let's try again, ${userName}!`)
       return
     }
+    console.log('Correct!')
   }
 
   console.log(`Congratulations, ${userName}!`)
 }
 
-export default index
+export default runGame

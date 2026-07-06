@@ -1,4 +1,7 @@
 #!/usr/bin/env node
-import helloUser from '../src/cli.js'
+import greet from '../src/cli.js'
+import runGame from '../src/index.js'
+import { rule, getQuestionAndAnswer } from '../src/games/prime.js'
 
-helloUser()
+const userName = greet()
+runGame(rule, getQuestionAndAnswer, userName)

@@ -1,9 +1,9 @@
-import { getRandomNumbers } from '../utils.js'
+import { getRandomNumber } from '../utils.js'
 
 export const rule = 'Find the greatest common divisor of given numbers.'
 export const getQuestionAndAnswer = () => {
-  const a = getRandomNumbers()
-  const b = getRandomNumbers()
+  const a = getRandomNumber()
+  const b = getRandomNumber()
   let x = a
   let y = b
 
